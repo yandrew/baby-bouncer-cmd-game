@@ -5,11 +5,13 @@ import math
 
 # Initialize the screen
 stdscr = curses.initscr()
+curses.cbreak()  # Don't wait for enter key
+stdscr.nodelay(1)  # Non-blocking getch()
 
 # Define game characters
 building = '|'
 baby = 'B'
-trampoline = '=='
+trampoline = '===='
 
 # Building and ground dimensions
 building_height = 20
