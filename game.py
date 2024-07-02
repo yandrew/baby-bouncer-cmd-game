@@ -108,5 +108,5 @@ finally:
     curses.echo()
     curses.endwin()
 
-print(f'Game over. You saved {score} babies.')
+print(f'Game over. You saved {score} babies and killed {killed} babies.')
 
