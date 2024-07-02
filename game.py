@@ -35,6 +35,7 @@ g = 0.2
 # Game duration and score
 start_time = time.time()
 score = 0
+killed = 0
 
 def launch_baby():
     angle = random.randint(*angle_range)
@@ -64,6 +65,8 @@ try:
         # Draw the trampoline
         stdscr.addstr(trampoline_pos[0], trampoline_pos[1], trampoline)
 
+        stdscr.addstr(0, 0, f"Saved Babies: {score}")  
+        stdscr.addstr(1, 0, f"Killed Babies: {killed}")  
         stdscr.refresh()
         time.sleep(0.1)
 
@@ -82,6 +85,7 @@ try:
         elif int(baby_pos[0]) > trampoline_pos[0] or int(baby_pos[1]) < 0 or int(baby_pos[1]) > ground_width:
             baby_pos = [building_height - 1, building_width // 2]
             baby_velocity = launch_baby()
+            killed += 1
 
         # Trampoline moves
         key = stdscr.getch()
